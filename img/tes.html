@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Digital — Dark Elegant Gold</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------------- GLOBAL STYLE ---------------- */
+
+    /* Background Foto Layer (Code 2) */
+    .bg-photo {
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-size:cover;
+      background-position:center;
+      opacity:0.28;
+      z-index:-3;
+      pointer-events:none;
+    }
+    body {
+      margin: 0;
+      background: #0b0b0d;
+      color: #f5f5f5;
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: 1px;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 80px 20px;
+    }
+     
+
+    /* -------- GOLD DUST ANIMATION -------- */
+    .gold-dust {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.ibb.co/9bQ0KtD/gold-dust.gif');
+      background-size: cover;
+      opacity: 0.25;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    /* ---------------- HERO OPENING ---------------- */
+    #opening {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg,#000,#111);
+    }
+
+    #opening .photo-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      filter: blur(4px);
+      z-index: -2;
+    }
+
+    #opening .photo-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid gold;
+      margin-bottom: 25px;
+    }
+    #opening .photo-circle img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    #opening h1 { font-size: 36px; margin: 10px 0; }
+    #opening button {
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: gold;
+      border: none;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* ---------------- COUPLE SECTION ---------------- */
+    #couple { text-align: center; }
+    #couple .photos { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+    .circle {
+      width: 150px; height: 150px; border-radius: 50%; overflow: hidden;
+      border: 2px solid gold;
+    }
+    .circle img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---------------- EVENT SECTION ---------------- */
+    #event h2 { text-align: center; margin-bottom: 40px; }
+    .event-box {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+    .maps-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: gold;
+      padding: 10px 22px;
+      border-radius: 25px;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* ---------------- TIMELINE ---------------- */
+    #timeline { text-align: center; }
+    .time-step {
+      margin: 25px auto;
+      max-width: 400px;
+      padding: 20px;
+      border-left: 2px solid gold;
+      text-align: left;
+    }
+
+    /* ---------------- GALLERY ---------------- */
+    #gallery h2 { text-align: center; margin-bottom: 30px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+    }
+    .gallery-grid img {
+      width: 100%; border-radius: 10px;
+    }
+
+    /* ---------------- RSVP ---------------- */
+    #rsvp h2 { text-align: center; }
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea, select {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    button.submit {
+      background: gold;
+      border: none;
+      padding: 12px;
+      border-radius: 24px;
+      font-weight: 700;
+    }
+    
+
+    /* ---------------- CLOSING ---------------- */
+    #closing { text-align: center; padding-bottom: 120px; }
+    /* Gold Separator */
+    .separator {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, gold, transparent);
+      margin: 20px auto;
+    }
+
+    /* Glowing Titles */
+    h2, h1 {
+      text-shadow: 0 0 8px rgba(255,215,0,0.4);
+    }
+
+    /* Quotes Rotating */
+    #quotes p { font-size: 18px; font-style: italic; transition: opacity 0.8s ease; }
+
+    /* Mempelai Slider */
+    .couple-slider {
+      position: relative;
+      width: 90%;
+      max-width: 350px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid gold;
+    }
+    .couple-slider img {
+      width: 100%; height: auto;
+      display: none;
+    }
+    .couple-slider img.active {
+      display: block;
+    }
+
+    /* Fade-up animation */
+    .fade-up {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.9s ease-out;
+    }
+
+    .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    .gallery-slide {
+     opacity: 0;
+     transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    }
+
+    .gallery-slide.show {
+     opacity: 1;
+     transform: translateY(0);
+    }
+  </style>
+  <style>
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: gold;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    /* ORNAMEN BERGERAK SAMPING */
+    .ornamen {
+     position: absolute;
+     width: 110px;
+     opacity: 0.7;
+     pointer-events: none;
+     z-index: -1;
+     animation: floatSide 4s ease-in-out infinite alternate;
+    }
+
+    /* Posisi kiri */
+    .ornamen-left {
+     left: 10px;
+     bottom: 15%;
+    }
+
+    /* Posisi kanan */
+    .ornamen-right {
+     right: 10px;
+     top: 18%;
+     animation-delay: 1.2s;
+    }
+
+    @keyframes floatSide {
+     from { transform: translateX(0); }
+     to   { transform: translateX(20px); }
+    }
+
+    /* Popup Save The Date */
+    #saveDatePopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9998;
+    }
+    #saveDatePopup .box {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid gold;
+      animation: fadeIn 0.9s ease;
+    }
+
+    #saveDatePopup img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid gold;
+      margin-bottom: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #saveDatePopup button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: gold;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    #music-control {
+     position: fixed;
+     bottom: 20px;
+     right: 20px;
+     background: rgba(255,255,255,0.15);
+     border: 1px solid gold;
+     backdrop-filter: blur(10px);
+     width: 55px;
+     height: 55px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 24px;
+     cursor: pointer;
+     z-index: 9999;
+     color: gold;
+     transition: 0.3s ease;
+    }
+
+    #music-control:hover {
+     background: rgba(255,255,255,0.25);
+     transform: scale(1.1);
+    }
+
+    #music-icon {
+     pointer-events: none;
+}
+  </style>
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">Loading...</div>
+
+  <!-- Save the Date Popup -->
+  <div id="saveDatePopup">
+    <div class="box">
+      <img src="img/cover-bg.jpg" alt="Couple" />
+      <h2>Save The Date</h2>
+      <p>Jangan lewatkan hari bahagia kami!</p>
+      <button onclick="closeSaveDate()">Tutup</button>
+    </div>
+  </div>
+  </div>
+
+  <!-- MUSIC AUTOPLAY -->
+  <audio id="music" autoplay loop> 
+    <source src="music/backsound.mp3" type="audio/mp3" />
+  </audio>
+  <div id="music-control">
+  <span id="music-icon">🔊</span>
+</div>
+
+
+  <!-- Opening / Hero -->
+  <section id="opening">
+    <div class="photo-bg" style="background-image:url('img/background.jpg');"></div>
+    <div class="gold-dust"></div>
+
+    <!-- Ornamen Bergerak Kiri -->
+    <img src="img/ornament-kiri.png" class="ornamen ornamen-left">
+
+    <!-- Ornamen Bergerak Kanan -->
+    <img src="img/ornament-kanan.png" class="ornamen ornamen-right">
+
+    <div class="photo-circle">
+      <img src="img/gallery2.jpg" alt="Couple" />
+    </div>
+
+    <h3 class="fade-up">THE WEDDING OF</h3>
+    <h1 class="fade-up">Aldi & Putri</h1>
+    <button onclick="window.scrollTo({top:800, behavior:'smooth'})">Buka Undangan</button>
+  </section>
+
+  <!-- Quotes Section (Moved Above Couple) -->
+  <h2 class="fade-up">Quotes</h2>
+  <section id="quotes">
+    <div class="bg-photo" style="background-image:url('img/ornament1.png');"></div>
+    <p class="fade-up">"Cinta bukan tentang saling menatap, tetapi melihat ke arah yang sama bersama."</p>
+  </section>
+
+  <!-- Couple Section -->
+  <div class="bg-photo" style="background-image:url('img/ornament2.png');"></div>
+  <section id="couple">
+    <div class="bg-photo" style="background-image:url('img/gallery2.jpg');"></div>
+    <div class="separator"></div>
+
+    <!-- Slider Foto Mempelai -->
+    <div class="couple-slider">
+      <img src="img/gallery3.jpg" class="active">
+      <img src="img/gallery2.jpg">
+      <img src="img/gallery1.jpg">
+    </div>
+    <div class="bg-photo" style="background-image:url('img/ornament3.png');"></div>
+    <div class="gold-dust"></div>
+    <h2 class="fade-up">Mempelai</h2>
+
+    <div class="photos">
+      <div>
+        <div class="circle"><img src="img/mempelai-wanita.jpg" /></div>
+        <h3 class="fade-up">Putri</h3>
+        <p class="fade-up">Putri dari Bpk .... & Ibu ....</p>
+      </div>
+      <div>
+        <div class="circle"><img src="img/mempelai-pria.jpg" /></div>
+        <h3 class="fade-up">Aldi</h3>
+        <p class="fade-up">Aldi dari Bpk .... & Ibu ....</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Section -->
+  <section id="event">
+    <div class="bg-photo" style="background-image:url('img/gallery2.jpg');"></div>
+    <div class="gold-dust"></div>
+    <h2 class="fade-up">Acara</h2>
+
+    <div class="event-box">
+      <h3 class="fade-up">Akad Nikah</h3>
+      <p class="fade-up">Tanggal: ....</p>
+      <p class="fade-up">Jam: ....</p>
+      <a class="maps-btn" href="#">Google Maps</a>
+    </div>
+
+    <div class="event-box">
+      <h3 class="fade-up">Resepsi</h3>
+      <p class="fade-up">Tanggal: ....</p>
+      <p class="fade-up">Jam: ....</p>
+      <a class="maps-btn" href="#">Google Maps</a>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline">
+    <div class="bg-photo" style="background-image:url('img/gallery4.jpg');"></div>
+    <div class="gold-dust"></div>
+    <h2 class="fade-up">Our Journey</h2>
+
+    <div class="time-step">
+      <h3 class="fade-up">2019</h3>
+      <p class="fade-up">Awal bertemu...</p>
+    </div>
+
+    <div class="time-step">
+      <h3 class="fade-up">2021</h3>
+      <p class="fade-up">Mulai serius...</p>
+    </div>
+
+    <div class="time-step">
+      <h3 class="fade-up">2024</h3>
+      <p class="fade-up">Lamaran...</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="gold-dust"></div>
+    <h2 class="fade-up">Gallery</h2>
+
+    <div class="gallery-grid">
+      <img src="img/gallery1.jpg" class="gallery-slide"/>
+      <img src="img/gallery2.jpg" class="gallery-slide"/>
+      <img src="img/gallery3.jpg" class="gallery-slide"/>
+      <img src="img/gallery4.jpg" class="gallery-slide"/>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="gold-dust"></div>
+    <h2 class="fade-up">Konfirmasi Kehadiran</h2>
+
+    <form>
+      <input type="text" placeholder="Nama" />
+      <select>
+        <option>Hadir</option>
+        <option>Tidak Hadir</option>
+      </select>
+      <textarea placeholder="Ucapan..."></textarea>
+      <button class="submit">Kirim</button>
+    </form>
+  </section>
+
+  
+
+  <script>
+    // Rotating Quotes
+    const quotes = [
+      "Cinta bukan tentang saling menatap, tetapi melihat ke arah yang sama.",
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu. (QS. Ar-Rum:21)",
+      "Pernikahan terbaik adalah yang saling menguatkan dalam kebaikan."
+    ];
+    let qIndex = 0;
+    setInterval(() => {
+      const qp = document.querySelector('#quotes p');
+      qp.style.opacity = 0;
+      setTimeout(() => {
+        qIndex = (qIndex + 1) % quotes.length;
+        qp.textContent = quotes[qIndex];
+        qp.style.opacity = 1;
+      }, 800);
+    }, 4000);
+
+    const music = document.getElementById("music");
+  const musicControl = document.getElementById("music-control");
+  const musicIcon = document.getElementById("music-icon");
+
+  let isPlaying = true;
+
+  // Pastikan musik mulai saat halaman dibuka (note: beberapa browser butuh interaction)
+  music.play();
+
+  // Tombol play/pause
+  musicControl.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicIcon.textContent = "🔈";
+      isPlaying = false;
+    } else {
+      music.play();
+      musicIcon.textContent = "🔊";
+      isPlaying = true;
+    }
+  });
+
+    // Fade-up Observer
+    const textFadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".fade-up").forEach(el => textFadeObserver.observe(el));
+
+    const galleryObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+     }, { threshold: 0.15 });
+
+  document.querySelectorAll(".gallery-slide").forEach(el => galleryObserver.observe(el));
+
+    // Mempelai Slider
+    const slides = document.querySelectorAll('.couple-slider img');
+    let sIndex = 0;
+    setInterval(() => {
+      slides[sIndex].classList.remove('active');
+      sIndex = (sIndex + 1) % slides.length;
+      slides[sIndex].classList.add('active');
+    }, 3500);
+  </script>
+
+  <!-- Doa Section -->
+  <h2>Doa</h2>
+  <section id="doa">
+    <div class="bg-photo fade" style="background-image:url('img/gallery1.jpg');"></div>
+    <p>"Ya Allah, satukanlah hati kedua mempelai ini dalam kebaikan, berkahilah rumah tangga mereka dengan sakinah, mawaddah, warahmah. Jadikan pernikahan ini sebagai ibadah yang Engkau ridhoi."</p>
+    <p >Aamiin ya Rabbal 'alamin.</p>
+  </section>
+
+  <!-- Hadiah Digital -->
+  <h2 class="fade-up">Hadiah Digital</h2>
+  <section id="hadiah">
+    <div class="bg-photo" style="background-image:url('img/ornament3.png');"></div>
+    <p>Bagi yang ingin mengirim hadiah sebagai bentuk kasih sayang, dapat melalui nomor rekening berikut:</p>
+
+    <div class="event-box" style="text-align:center; margin-top:20px;">
+      <h3>Bank BCA</h3>
+      <p>123 456 7890</p>
+      <p>a.n. Aldi & Putri</p>
+    </div>
+
+    <div class="event-box" style="text-align:center; margin-top:20px;">
+      <h3>DANA</h3>
+      <p>0895-xxxx-xxxx</p>
+      <p>a.n. Putri</p>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section id="closing">
+    <div class="bg-photo" style="background-image:url('img/cover-bg.jpg');"></div>
+    <div class="gold-dust"></div>
+    <h2>Terima Kasih</h2>
+    <p>Merupakan kehormatan bagi kami apabila Anda berkenan hadir.</p>
+  </section>
+
+  <script>
+    // Loading Screen
+    window.addEventListener('load', function(){
+      setTimeout(() => {
+        document.getElementById('loading-screen').style.opacity = '0';
+        setTimeout(() => {
+          document.getElementById('loading-screen').style.display = 'none';
+        }, 500);
+      }, 800);
+    });
+
+    // Popup Save the Date
+    setTimeout(() => {
+      document.getElementById('saveDatePopup').style.display = 'flex';
+    }, 1500);
+
+    function closeSaveDate() {
+      document.getElementById('saveDatePopup').style.display = 'none';
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    // Reveal on scroll (luxury smooth)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+  </script>
+</body>
+</html>
