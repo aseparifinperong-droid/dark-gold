@@ -251,32 +251,36 @@
       font-size: 22px;
       letter-spacing: 2px;
     }
-    /* ORNAMEN BERGERAK SAMPING */
-    .ornamen {
-     position: absolute;
-     width: 110px;
-     opacity: 0.7;
-     pointer-events: none;
-     z-index: -1;
-     animation: floatSide 4s ease-in-out infinite alternate;
+    /* Ornament Container */
+    .ornament {
+      position: absolute;
+      z-index: 3;
+      animation: float 4s ease-in-out infinite alternate;
+      opacity: 0.9;
     }
 
-    /* Posisi kiri */
-    .ornamen-left {
-     left: 10px;
-     bottom: 15%;
+    /* Ornament kiri */
+    .ornament-left {
+      bottom: 20px;
+      left: 10px;
     }
 
-    /* Posisi kanan */
-    .ornamen-right {
-     right: 10px;
-     top: 18%;
-     animation-delay: 1.2s;
+    /* Ornament kanan */
+    .ornament-right {
+      top: 20px;
+      right: 10px;
     }
 
-    @keyframes floatSide {
-     from { transform: translateX(0); }
-     to   { transform: translateX(20px); }
+    /* Perbesar ukuran ornament */
+    .ornament img {
+      width: 150px;  /* → BESARKAN DISINI (contoh 150–250px) */
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+    }
+
+      /* Animasi gerak halus */
+      @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(10px); }
     }
 
     /* Popup Save The Date */
@@ -380,14 +384,12 @@
     <div class="photo-bg" style="background-image:url('img/background.jpg');"></div>
     <div class="gold-dust"></div>
 
-    <!-- Ornamen Bergerak Kiri -->
-    <img src="img/ornament-kiri.png" class="ornamen ornamen-left">
+    <div class="ornament ornament-left">
+    <img src="img/ornament-kiri.png" alt="">
+    </div>
 
-    <!-- Ornamen Bergerak Kanan -->
-    <img src="img/ornament-kanan.png" class="ornamen ornamen-right">
-
-    <div class="photo-circle">
-      <img src="img/gallery2.jpg" alt="Couple" />
+    <div class="ornament ornament-right">
+    <img src="img/ornament-kanan.png" alt="">
     </div>
 
     <h3 class="fade-up">THE WEDDING OF</h3>
@@ -657,4 +659,5 @@
   </script>
 </body>
 </html>
+
 
