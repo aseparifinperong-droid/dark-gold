@@ -271,18 +271,29 @@
       right: 10px;
     }
 
-    /* Perbesar ukuran ornament */
-    .ornament img {
-      width: 150px;  /* → BESARKAN DISINI (contoh 150–250px) */
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
-    }
+   /* Ornament Responsive Full Size */
+.ornament img {
+  width: 45vw;              /* ukuran besar mengikuti lebar layar */
+  max-width: 260px;         /* batas maksimal di HP besar */
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+}
 
-      /* Animasi gerak halus */
-      @keyframes float {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(10px); }
-    }
+/* Posisi aman supaya tidak menutupi foto / judul */
+.ornament-left {
+  bottom: 40px;
+  left: 0;
+}
 
+.ornament-right {
+  top: 40px;
+  right: 0;
+}
+
+/* Naikkan layer supaya tidak tertutup background lain */
+.ornament {
+  z-index: 50;
+}
     /* Popup Save The Date */
     #saveDatePopup {
       position: fixed;
@@ -659,6 +670,7 @@
   </script>
 </body>
 </html>
+
 
 
 
